@@ -18,14 +18,12 @@ export default function CountButton({ setCount, type, locked }) {
     e.currentTarget.blur();
   }
   return (
-    <button className="count-btn" onClick={handleClick}>
-      {type === "plus" ? (
-        <button disabled={locked} className="count-btn-icon">
-          Increase
-        </button>
-      ) : (
-        <button className="count-btn-icon">Decrease</button>
-      )}
+    <button
+      className="count-btn count-btn-icon"
+      onClick={handleClick}
+      disabled={locked && type === "plus"}
+    >
+      {type === "plus" ? "Increase" : "Decrease"}
     </button>
   );
 }
